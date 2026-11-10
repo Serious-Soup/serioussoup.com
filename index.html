@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serious Soup — Purveyors of fine nonsense</title>
+<meta name="description" content="Serious Soup is a tiny independent game studio. We make silly games with a perfectly straight face. Now cooking: Up the Creek!, an online co-op physics comedy on an ice floe.">
+<link rel="canonical" href="https://serioussoup.com/">
+<meta name="theme-color" content="#F2EBDC">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Serious Soup">
+<meta property="og:title" content="Serious Soup — Purveyors of fine nonsense">
+<meta property="og:description" content="A tiny independent game studio. Silly games, made with a perfectly straight face.">
+<meta property="og:url" content="https://serioussoup.com/">
+<meta property="og:image" content="https://serioussoup.com/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Bodoni Moda";src:url("/fonts/bodoni-moda.woff2") format("woff2");font-weight:400 900;font-style:normal;font-display:swap}
+@font-face{font-family:"Bodoni Moda";src:url("/fonts/bodoni-moda-italic.woff2") format("woff2");font-weight:400 900;font-style:italic;font-display:swap}
+:root{
+  --ink:#1C1A17;--cream:#F2EBDC;--paper:#F8F4EA;--tie:#A32D2D;--muted:#615A4E;--muted-dark:#B9B09C;
+  --deep:#0B2C4A;--deep-2:#0F3657;--glint:#97D6F2;--snow:#F7FBFD;
+  --wrap:1120px;--gutter:24px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--cream);color:var(--ink);
+  font-family:"Bodoni Moda",Georgia,"Times New Roman",serif;font-optical-sizing:none;font-variation-settings:"opsz" 11;
+  font-weight:430;font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
+a:hover{color:var(--tie)}
+:focus-visible{outline:2px solid var(--tie);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.caps{font-variation-settings:"opsz" 12;font-weight:520;font-size:13px;letter-spacing:.3em;text-transform:uppercase}
+h2{font-variation-settings:"opsz" 14;font-weight:560;font-size:clamp(26px,3.6vw,36px);letter-spacing:.14em;text-transform:uppercase;line-height:1.2;margin:.4em 0 .8em}
+p{margin:0 0 1em}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--cream);padding:8px 12px;z-index:10}
+.skip:focus{left:8px}
+
+/* header */
+.top{border-bottom:1px solid rgba(28,26,23,.14)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img.mark{width:40px;height:40px}
+.brand img.word{height:19px;width:auto}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
+nav a{text-decoration:none}
+nav a:hover{text-decoration:underline}
+
+/* hero */
+.hero{text-align:center;padding:72px 0 88px}
+.hero h1{margin:0}
+.hero h1 img{width:min(620px,100%);margin:0 auto}
+.hero .lede{font-style:italic;font-variation-settings:"opsz" 14;font-size:clamp(20px,2.4vw,24px);margin:40px auto 0;max-width:40ch;color:var(--muted)}
+
+/* game */
+.game{background:var(--deep);color:var(--snow);padding:88px 0 96px}
+.game .label{color:var(--glint);text-align:center;margin:0}
+.game .logo{width:min(640px,100%);margin:20px auto 0}
+.game .slogan{text-align:center;font-style:italic;font-variation-settings:"opsz" 14;font-size:clamp(20px,2.4vw,24px);margin:20px 0 48px;color:var(--glint)}
+.game figure{margin:0 0 56px}
+.game figure img{width:100%;border-radius:6px;aspect-ratio:16/9;object-fit:cover;background:var(--deep-2)}
+.game .cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:56px;align-items:start}
+.game .pitch{font-size:22px;line-height:1.55;font-variation-settings:"opsz" 13}
+.game ul.loop{margin:24px 0 0;padding:0;list-style:none}
+.game ul.loop li{padding:14px 0 14px 28px;border-top:1px solid rgba(151,214,242,.22);position:relative}
+.game ul.loop li::before{content:"";position:absolute;left:4px;top:26px;width:9px;height:9px;border-radius:50%;background:#E8382C;box-shadow:0 0 0 3px rgba(247,251,253,.9)}
+.facts{background:var(--deep-2);border:1px solid rgba(151,214,242,.22);border-radius:6px;padding:28px 28px 8px}
+.facts dl{margin:0}
+.facts dt{color:var(--glint);margin-bottom:4px}
+.facts dd{margin:0 0 20px;font-size:20px}
+
+/* studio */
+.studio{padding:96px 0}
+.studio .grid{display:grid;grid-template-columns:280px minmax(0,1fr);gap:64px;align-items:center}
+.studio figure{margin:0;text-align:center}
+.studio figure img{width:280px;height:280px;border-radius:50%;border:3px solid var(--ink)}
+.studio figcaption{margin-top:14px;font-style:italic;font-size:16px;color:var(--muted)}
+.studio .text{max-width:60ch}
+.studio .motto{font-style:italic;font-variation-settings:"opsz" 14;font-size:22px;margin-top:8px}
+.studio .motto span{color:var(--tie)}
+
+/* contact */
+.contact{padding:0 0 104px}
+.contact .rule{border-top:1px solid rgba(28,26,23,.2);padding-top:88px}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.card{background:var(--paper);border:1px solid rgba(28,26,23,.16);border-radius:6px;padding:28px}
+.card .caps{color:var(--muted);margin:0 0 12px}
+.card .mail{font-size:clamp(18px,1.9vw,21px);font-weight:520;word-break:break-word}
+.card p:last-child{margin:12px 0 0;font-size:17px;color:var(--muted)}
+
+/* footer */
+footer{background:var(--ink);color:var(--cream);padding:56px 0}
+footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+footer img{height:22px;width:auto}
+footer p{margin:0;color:var(--muted-dark);font-size:15px}
+footer .caps{font-size:12px}
+
+@media (max-width:900px){
+  .game .cols{grid-template-columns:1fr;gap:40px}
+  .studio .grid{grid-template-columns:1fr;gap:40px;justify-items:center;text-align:center}
+  .studio .text{margin:0 auto}
+  .cards{grid-template-columns:1fr}
+}
+@media (max-width:600px){
+  :root{--gutter:16px}
+  body{font-size:18px}
+  .top .wrap{height:64px}
+  .brand img.word{display:none}
+  nav ul{gap:18px}
+  .caps{letter-spacing:.2em}
+  .hero{padding:48px 0 64px}
+  .game,.studio{padding:64px 0}
+  .game .pitch{font-size:20px}
+  .studio figure img{width:220px;height:220px}
+  .contact .rule{padding-top:64px}
+  footer .wrap{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Serious Soup, home">
+      <img class="mark" src="/img/mark.svg" alt="" width="36" height="36">
+      <img class="word" src="/img/wordmark.svg" alt="" width="92" height="15">
+    </a>
+    <nav aria-label="Main">
+      <ul class="caps">
+        <li><a href="#games">Games</a></li>
+        <li><a href="#studio">Studio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <h1><img src="/img/logo-stacked.svg" alt="Serious Soup — Purveyors of fine nonsense. Est. 2026" width="2154" height="1340"></h1>
+      <p class="lede">We make silly games with a perfectly straight face.</p>
+    </div>
+  </section>
+
+  <section class="game" id="games" aria-labelledby="game-title">
+    <div class="wrap">
+      <p class="label caps">Now on the stove</p>
+      <h2 id="game-title" style="margin:0">
+        <picture>
+          <source srcset="/img/up-the-creek-logo-600.webp 600w, /img/up-the-creek-logo-1200.webp 1200w" sizes="(max-width:700px) 100vw, 640px">
+          <img class="logo" src="/img/up-the-creek-logo-1200.webp" alt="Up the Creek!" width="1200" height="312">
+        </picture>
+      </h2>
+      <p class="slogan">Four guys. One ice floe. Not a single paddle.</p>
+
+      <figure>
+        <img src="/img/up-the-creek-1600.webp"
+             srcset="/img/up-the-creek-960.webp 960w, /img/up-the-creek-1600.webp 1600w, /img/up-the-creek-2400.webp 2400w"
+             sizes="(max-width:1168px) calc(100vw - 32px), 1072px"
+             alt="Four fishermen on a cracking ice floe: one fights a leaping fish, one slides into the water and is caught by the hand, one hauls a sled full of fish while a penguin watches from a nearby floe."
+             width="2400" height="1350" loading="lazy" decoding="async">
+      </figure>
+
+      <div class="cols">
+        <div>
+          <p class="pitch">Fresh out of the banya, a crew of fishermen foolishly drift off on an ice floe after the legendary Tsar Pike. Day after day they float further out — and every evening an old van hauls them and their catch home to the village, where fish become upgrades.</p>
+          <ul class="loop">
+            <li>Drill, fish and keep the floe from tipping over. Everything is hands-on physics.</li>
+            <li>Keep each other warm. Save each other. Or don’t.</li>
+            <li>At the strait, the van picks you up — the ride home is in the back, not on a loading screen.</li>
+            <li>In the village, the catch buys upgrades for your floe and sled, and the map opens the next bay.</li>
+            <li>Somewhere out in the farthest bay, the Tsar Pike is waiting.</li>
+          </ul>
+        </div>
+        <aside class="facts" aria-label="Game facts">
+          <dl>
+            <dt class="caps">Genre</dt><dd>Co-op physics comedy</dd>
+            <dt class="caps">Players</dt><dd>1–4, online co-op</dd>
+            <dt class="caps">Platform</dt><dd>Windows PC</dd>
+            <dt class="caps">Status</dt><dd>In development</dd>
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="studio" id="studio" aria-labelledby="studio-title">
+    <div class="wrap grid">
+      <figure>
+        <img src="/img/founder-560.webp" alt="Portrait of a soup bowl with a stern face, wearing a suit, white collar and red tie." width="560" height="560" loading="lazy" decoding="async">
+        <figcaption>The founder. Official portrait.</figcaption>
+      </figure>
+      <div class="text">
+        <h2 id="studio-title">The studio</h2>
+        <p>Serious Soup is a tiny independent game studio, founded in 2026.</p>
+        <p>The name comes from a bit of Slavic slang: to do something “with a serious soup” means to do it with a dead-serious face — the word for cabbage soup doubles as “face”. So: serious soup. We make nonsense, and we make it with a perfectly straight one.</p>
+        <p class="motto">Purveyors of fine nonsense<span>.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="rule">
+        <h2 id="contact-title">Contact</h2>
+        <div class="cards">
+          <div class="card">
+            <p class="caps">Player support</p>
+            <a class="mail" href="mailto:support@serioussoup.com">support@serioussoup.com</a>
+            <p>Bugs, crashes and anything that went wrong in the game.</p>
+          </div>
+          <div class="card">
+            <p class="caps">Press &amp; business</p>
+            <a class="mail" href="mailto:press@serioussoup.com">press@serioussoup.com</a>
+            <p>Press, streamers, festivals and partners.</p>
+          </div>
+          <div class="card">
+            <p class="caps">Press kit</p>
+            <span class="mail">Coming soon</span>
+            <p>Logos, key art, screenshots and a fact sheet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="/img/wordmark-on-dark.svg" alt="Serious Soup" width="99" height="16">
+    <p class="caps">Purveyors of fine nonsense · Est. 2026</p>
+    <p>© 2026 Serious Soup</p>
+  </div>
+</footer>
+</body>
+</html>
