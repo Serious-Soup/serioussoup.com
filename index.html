@@ -3,147 +3,222 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Serious Soup — Purveyors of fine nonsense</title>
-<meta name="description" content="Serious Soup is a tiny independent game studio. We make silly games with a perfectly straight face. Now cooking: Up the Creek!, an online co-op physics comedy on an ice floe. Wishlist it on Steam.">
+<title>Up the Creek! — a co-op physics comedy on an ice floe · Serious Soup</title>
+<meta name="description" content="Up the Creek! is an online co-op physics comedy for 1–4 friends adrift on a melting ice floe. By Serious Soup, a tiny independent game studio. Wishlist it on Steam.">
 <link rel="canonical" href="https://serioussoup.com/">
-<meta name="theme-color" content="#F2EBDC">
+<meta name="theme-color" content="#0B2C4A">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Serious Soup">
-<meta property="og:title" content="Serious Soup — Purveyors of fine nonsense">
-<meta property="og:description" content="A tiny independent game studio. Silly games, made with a perfectly straight face.">
+<meta property="og:title" content="Up the Creek! — wishlist on Steam">
+<meta property="og:description" content="An online co-op physics comedy for 1–4 friends adrift on a melting ice floe. Paddle not included.">
 <meta property="og:url" content="https://serioussoup.com/">
 <meta property="og:image" content="https://serioussoup.com/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="/fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/unbounded-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="/img/keyart-1920.webp" imagesrcset="/img/keyart-1280.webp 1280w, /img/keyart-1920.webp 1920w, /img/keyart-2880.webp 2880w" imagesizes="100vw" media="(min-aspect-ratio: 4/5)">
+<link rel="preload" as="image" href="/img/keyart-tall-1125.webp" imagesrcset="/img/keyart-tall-750.webp 750w, /img/keyart-tall-1125.webp 1125w, /img/keyart-tall-1500.webp 1500w" imagesizes="100vw" media="(max-aspect-ratio: 4/5)">
 <style>
+@font-face{font-family:"Unbounded";src:url("/fonts/unbounded-800.woff2") format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Unbounded";src:url("/fonts/unbounded-500.woff2") format("woff2");font-weight:500;font-display:swap}
 @font-face{font-family:"Bodoni Moda";src:url("/fonts/bodoni-moda.woff2") format("woff2");font-weight:400 900;font-style:normal;font-display:swap}
 @font-face{font-family:"Bodoni Moda";src:url("/fonts/bodoni-moda-italic.woff2") format("woff2");font-weight:400 900;font-style:italic;font-display:swap}
+
 :root{
+  /* the game: water, ice, bobber */
+  --abyss:#061A2C;--deep:#0B2C4A;--deep-2:#0F3657;--water:#176196;--ice:#5CC4E8;--glint:#97D6F2;--snow:#F7FBFD;
+  --bobber:#E8382C;--yellow:#F6C21C;
+  /* the store */
+  --steam-top:#2A475E;--steam-mid:#1B2838;--steam-bot:#171A21;--steam-blue:#66C0F4;--steam-text:#C7D5E0;
+  /* the studio */
   --ink:#1C1A17;--cream:#F2EBDC;--paper:#F8F4EA;--tie:#A32D2D;--muted:#615A4E;--muted-dark:#B9B09C;
-  --deep:#0B2C4A;--deep-2:#0F3657;--glint:#97D6F2;--snow:#F7FBFD;
-  --wrap:1120px;--gutter:24px;
+
+  --display:"Unbounded","Arial Black",sans-serif;
+  --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Bodoni Moda",Georgia,"Times New Roman",serif;
+  --wrap:1200px;--gutter:clamp(16px,4vw,40px);
+  --ease-out:cubic-bezier(.16,1,.3,1);
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--cream);color:var(--ink);
-  font-family:"Bodoni Moda",Georgia,"Times New Roman",serif;font-optical-sizing:none;font-variation-settings:"opsz" 11;
-  font-weight:430;font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scrollbar-color:var(--ice) var(--abyss)}
+body{margin:0;background:var(--abyss);color:var(--snow);font:400 18px/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+::selection{background:var(--ice);color:var(--deep)}
 img{display:block;max-width:100%;height:auto}
-a{color:inherit;text-decoration-thickness:1px;text-underline-offset:.18em}
-a:hover{color:var(--tie)}
-:focus-visible{outline:2px solid var(--tie);outline-offset:3px}
+a{color:inherit;text-underline-offset:.2em;text-decoration-thickness:1px}
+:focus-visible{outline:3px solid var(--steam-blue);outline-offset:4px;border-radius:4px}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
-.caps{font-variation-settings:"opsz" 12;font-weight:520;font-size:13px;letter-spacing:.3em;text-transform:uppercase}
-h2{font-variation-settings:"opsz" 14;font-weight:560;font-size:clamp(26px,3.6vw,36px);letter-spacing:.14em;text-transform:uppercase;line-height:1.2;margin:.4em 0 .8em}
-p{margin:0 0 1em}
-.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--cream);padding:8px 12px;z-index:10}
+.skip{position:absolute;left:-999px;top:8px;z-index:50;background:var(--snow);color:var(--deep);padding:10px 14px;font:500 14px var(--display)}
 .skip:focus{left:8px}
+h1,h2,h3{margin:0;font-weight:800;text-wrap:balance}
 
-/* header */
-.top{border-bottom:1px solid rgba(28,26,23,.14)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:72px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
-.brand img.mark{width:40px;height:40px}
-.brand img.word{height:19px;width:auto}
-nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0}
-nav a{text-decoration:none}
-nav a:hover{text-decoration:underline}
+/* ── Steam badge ─────────────────────────────────────────────── */
+.steam{position:relative;isolation:isolate;display:inline-flex;align-items:center;gap:14px;min-height:64px;padding:12px 28px 12px 16px;
+  border-radius:12px;color:#fff;text-decoration:none;text-align:left;overflow:hidden;cursor:pointer;
+  background:linear-gradient(180deg,var(--steam-top) 0%,var(--steam-mid) 52%,var(--steam-bot) 100%);
+  border:1px solid rgba(102,192,244,.55);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 16px 30px -14px rgba(0,0,0,.7);
+  transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out),border-color .3s var(--ease-out)}
+.steam::after{content:"";position:absolute;top:-30%;bottom:-30%;left:-50%;width:38%;z-index:-1;pointer-events:none;opacity:0;
+  background:linear-gradient(100deg,transparent 0%,rgba(214,240,255,.42) 50%,transparent 100%);transform:skewX(-18deg)}
+.steam:hover,.steam:focus-visible{transform:translateY(-2px);border-color:var(--steam-blue);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 20px 38px -12px rgba(102,192,244,.55)}
+.steam:hover::after,.steam:focus-visible::after{animation:glint 1s var(--ease-out)}
+.steam:active{transform:translateY(0)}
+@keyframes glint{0%{opacity:0;transform:translateX(0) skewX(-18deg)}12%{opacity:1}100%{opacity:0;transform:translateX(560%) skewX(-18deg)}}
+.steam svg{width:40px;height:40px;fill:#fff;flex:none}
+.steam__r{align-self:flex-start;margin:0 0 0 -13px;font:500 9px/1 var(--sans);color:var(--steam-text)}
+.steam__label{display:flex;flex-direction:column}
+.steam__small{font:500 11px/1.2 var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--steam-text)}
+.steam__big{font:800 26px/1 var(--display);letter-spacing:.01em;margin-top:6px}
+.steam--lg{min-height:80px;padding:14px 36px 14px 20px;gap:16px;border-radius:14px}
+.steam--lg svg{width:50px;height:50px}
+.steam--lg .steam__small{font-size:12px}
+.steam--lg .steam__big{font-size:34px}
 
-/* hero */
-.hero{text-align:center;padding:72px 0 88px}
-.hero h1{margin:0}
-.hero h1 img{width:min(620px,100%);margin:0 auto}
-.hero .lede{font-style:italic;font-variation-settings:"opsz" 14;font-size:clamp(20px,2.4vw,24px);margin:40px auto 0;max-width:40ch;color:var(--muted)}
-.hero .cta{margin:32px 0 0}
+/* ── header ──────────────────────────────────────────────────── */
+.top{position:absolute;inset:0 0 auto 0;z-index:20}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:76px}
+.brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}
+.brand .mark{width:38px;height:38px}
+.brand .word{height:16px;width:auto}
+.brand .presents{font:italic 400 17px/1 var(--serif);font-variation-settings:"opsz" 14;color:var(--ink);margin-left:-2px}
+.top nav ul{display:flex;gap:clamp(14px,2.4vw,30px);list-style:none;margin:0;padding:0}
+.top nav a{display:block;padding:12px 2px;font:500 12px/1 var(--display);letter-spacing:.16em;text-transform:uppercase;color:var(--deep);text-decoration:none;transition:color .2s}
+.top nav a:hover{color:var(--bobber)}
 
-/* wishlist button: text only (Steam rules forbid mixing the Steam logo with other words or graphics) */
-.btn{display:inline-block;max-width:100%;padding:16px 30px;border-radius:999px;text-wrap:balance;
-  background:var(--tie);color:#fff;text-decoration:none;text-align:center;line-height:1.25;
-  font-variation-settings:"opsz" 12;font-weight:600;font-size:14px;letter-spacing:.22em;text-transform:uppercase;
-  transition:background-color .15s ease,transform .15s ease}
-.btn:hover{background:#8C2424;color:#fff;transform:translateY(-1px)}
-.btn:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
-.btn i{font-style:italic;text-transform:none;letter-spacing:.03em;font-size:1.2em;font-weight:560;margin:0 .15em;white-space:nowrap}
-.btn span[aria-hidden]{margin-left:.45em}
-@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+/* ── hero: the poster ────────────────────────────────────────── */
+.hero{display:flex;flex-direction:column;min-height:100svh;background:var(--deep)}
+.hero__stage{position:relative;flex:1 1 auto;min-height:clamp(360px,58vh,980px);isolation:isolate;overflow:hidden}
+.hero__art{position:absolute;inset:0;z-index:-1}
+.hero__art img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.hero__stage::after{content:"";position:absolute;inset:auto 0 0 0;height:22%;z-index:-1;background:linear-gradient(180deg,rgba(11,44,74,0),var(--deep))}
+.hero h1{padding:clamp(84px,11vh,120px) var(--gutter) 0;text-align:center}
+.hero__logo{width:min(660px,62vw);margin:0 auto;filter:drop-shadow(0 12px 18px rgba(6,26,44,.3));animation:settle 1.6s var(--ease-out) both}
+@keyframes settle{0%{transform:translateY(-26px) rotate(-2deg)}55%{transform:translateY(5px) rotate(.6deg)}100%{transform:none}}
+.hero__cta{position:relative;padding:4px var(--gutter) clamp(28px,5vh,52px);text-align:center;background:var(--deep)}
+.hero__slogan{margin:0 auto 22px;max-width:30ch;font:800 clamp(19px,2.3vw,28px)/1.2 var(--display);letter-spacing:-.01em;color:var(--snow)}
+.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;margin:20px 0 0;padding:0;list-style:none;
+  font:500 12px/1.4 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--glint)}
+.facts li{display:flex;align-items:center;gap:22px}
+.facts li+li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--bobber);box-shadow:0 0 0 2px rgba(247,251,253,.85);margin-left:-22px}
+.facts li+li{padding-left:22px}
 
-/* game */
-.game{background:var(--deep);color:var(--snow);padding:88px 0 96px}
-.game .label{color:var(--glint);text-align:center;margin:0}
-.game .logo{width:min(640px,100%);margin:20px auto 0}
-.game .slogan{text-align:center;font-style:italic;font-variation-settings:"opsz" 14;font-size:clamp(20px,2.4vw,24px);margin:20px 0 28px;color:var(--glint)}
-.game .cta{text-align:center;margin:0 0 48px}
-.game .cta .note{display:block;margin-top:14px;color:var(--glint);font-size:12px}
-.game .btn:focus-visible{outline-color:var(--glint)}
-.game figure{margin:0 0 56px}
-.game figure a{display:block;border-radius:6px}
-.game figure img{width:100%;border-radius:6px;aspect-ratio:16/9;object-fit:cover;background:var(--deep-2)}
-.facts dd a{color:var(--snow)}
-.facts dd a:hover{color:var(--glint)}
-.game .cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:56px;align-items:start}
-.game .pitch{font-size:22px;line-height:1.55;font-variation-settings:"opsz" 13}
-.game ul.loop{margin:24px 0 0;padding:0;list-style:none}
-.game ul.loop li{padding:14px 0 14px 28px;border-top:1px solid rgba(151,214,242,.22);position:relative}
-.game ul.loop li::before{content:"";position:absolute;left:4px;top:26px;width:9px;height:9px;border-radius:50%;background:#E8382C;box-shadow:0 0 0 3px rgba(247,251,253,.9)}
-.facts{background:var(--deep-2);border:1px solid rgba(151,214,242,.22);border-radius:6px;padding:28px 28px 8px}
-.facts dl{margin:0}
-.facts dt{color:var(--glint);margin-bottom:4px}
-.facts dd{margin:0 0 20px;font-size:20px}
+/* ── about ───────────────────────────────────────────────────── */
+.about{padding:clamp(72px,11vw,140px) 0 clamp(56px,8vw,100px);background:var(--deep)}
+.about .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,88px);align-items:end}
+.about h2{font:800 clamp(34px,5.4vw,72px)/1.02 var(--display);letter-spacing:-.025em;color:var(--snow)}
+.about h2 em{font-style:normal;color:var(--ice)}
+.about p{margin:0;max-width:44ch;font-size:clamp(18px,1.6vw,20px);line-height:1.65;color:#D6E9F5}
 
-/* studio */
-.studio{padding:96px 0}
-.studio .grid{display:grid;grid-template-columns:280px minmax(0,1fr);gap:64px;align-items:center}
+/* ── gallery: postcards on a fishing line ───────────────────── */
+.catch{padding:clamp(48px,7vw,88px) 0 clamp(72px,10vw,120px);background:linear-gradient(180deg,var(--deep) 0%,var(--abyss) 100%)}
+.catch__head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:clamp(20px,3vw,32px)}
+.catch h2{font:800 clamp(26px,3.4vw,44px)/1.05 var(--display);letter-spacing:-.02em}
+.catch__note{margin:10px 0 0;color:var(--glint);font-size:16px}
+.catch__nav{display:flex;gap:10px;flex:none}
+.catch__nav button{width:52px;height:52px;border-radius:50%;border:1px solid rgba(151,214,242,.55);background:transparent;color:var(--snow);cursor:pointer;display:grid;place-items:center;transition:background-color .2s,color .2s,border-color .2s,opacity .2s}
+.catch__nav button:hover:not(:disabled){background:var(--ice);border-color:var(--ice);color:var(--deep)}
+.catch__nav button:disabled{opacity:.35;cursor:default}
+.catch__nav svg{width:20px;height:20px}
+.line{--edge:max(var(--gutter),calc((100vw - var(--wrap))/2 + var(--gutter)));display:flex;gap:clamp(18px,2.4vw,32px);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scroll-padding-inline:var(--edge);
+  padding:0 var(--edge) 34px;scrollbar-width:thin;scrollbar-color:rgba(92,196,232,.6) transparent;
+  background:linear-gradient(rgba(247,251,253,.55),rgba(247,251,253,.55)) 0 12px/100% 1.5px no-repeat local}
+.line::-webkit-scrollbar{height:6px}
+.line::-webkit-scrollbar-thumb{background:rgba(92,196,232,.6);border-radius:3px}
+.postcard{position:relative;flex:0 0 clamp(268px,36vw,520px);margin:0;padding-top:46px;scroll-snap-align:start}
+.postcard::before{content:"";position:absolute;left:50%;top:12px;width:1.5px;height:36px;background:rgba(247,251,253,.55)}
+.postcard .bob{position:absolute;left:50%;top:5px;width:15px;height:15px;margin-left:-7px;border-radius:50%;
+  background:linear-gradient(180deg,var(--bobber) 0 50%,var(--snow) 50% 100%);box-shadow:0 2px 6px rgba(0,0,0,.4)}
+.postcard__paper{background:var(--snow);padding:10px 10px 0;border-radius:3px;transform-origin:50% 0;
+  box-shadow:0 22px 36px -18px rgba(0,0,0,.75);transition:transform .6s var(--ease-out)}
+.postcard:nth-child(odd) .postcard__paper{transform:rotate(-1.4deg)}
+.postcard:nth-child(even) .postcard__paper{transform:rotate(1.1deg)}
+.postcard:hover .postcard__paper{transform:rotate(0)}
+.postcard img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:2px;background:var(--deep-2)}
+.postcard figcaption{padding:12px 6px 16px;font-size:16px;line-height:1.45;color:var(--deep)}
+
+/* ── call to action on a village evening ─────────────────────── */
+.wish{position:relative;isolation:isolate;overflow:hidden;padding:clamp(88px,13vw,170px) 0;background:var(--abyss)}
+.wish__art{position:absolute;inset:0;z-index:-2}
+.wish__art img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.wish::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(6,26,44,.94) 0%,rgba(6,26,44,.82) 38%,rgba(6,26,44,.25) 72%,rgba(6,26,44,.05) 100%)}
+.wish h2{max-width:13ch;font:800 clamp(34px,5.6vw,76px)/1.0 var(--display);letter-spacing:-.025em}
+.wish p{max-width:38ch;margin:22px 0 32px;font-size:clamp(18px,1.6vw,21px);line-height:1.6;color:#DCEAF3}
+
+/* ── the studio, in its own room ─────────────────────────────── */
+.studio{background:var(--cream);color:var(--ink);padding:clamp(80px,11vw,140px) 0 clamp(64px,8vw,100px);font-family:var(--serif);font-optical-sizing:none;font-variation-settings:"opsz" 11;font-weight:430;font-size:19px}
+.studio ::selection{background:var(--tie);color:#fff}
+.studio :focus-visible{outline-color:var(--tie)}
+.studio .grid{display:grid;grid-template-columns:280px minmax(0,1fr);gap:clamp(40px,6vw,72px);align-items:center}
 .studio figure{margin:0;text-align:center}
 .studio figure img{width:280px;height:280px;border-radius:50%;border:3px solid var(--ink)}
 .studio figcaption{margin-top:14px;font-style:italic;font-size:16px;color:var(--muted)}
-.studio .text{max-width:60ch}
+.studio h2,.contact h2{font:560 clamp(26px,3.4vw,36px)/1.2 var(--serif);font-variation-settings:"opsz" 14;letter-spacing:.14em;text-transform:uppercase;margin:0 0 .8em}
+.studio p{margin:0 0 1em;max-width:60ch;line-height:1.6}
 .studio .motto{font-style:italic;font-variation-settings:"opsz" 14;font-size:22px;margin-top:8px}
 .studio .motto span{color:var(--tie)}
+.contact{background:var(--cream);color:var(--ink);font-family:var(--serif);font-optical-sizing:none;font-variation-settings:"opsz" 11;font-weight:430;padding:0 0 clamp(80px,10vw,120px)}
+.contact ::selection{background:var(--tie);color:#fff}
+.contact :focus-visible{outline-color:var(--tie)}
+.contact .rule{border-top:1px solid rgba(28,26,23,.2);padding-top:clamp(56px,8vw,88px)}
+.contact dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0}
+.contact dl>div{padding:4px 28px 4px 0}
+.contact dl>div+div{border-left:1px solid rgba(28,26,23,.18);padding-left:28px}
+.contact dt{font:520 13px/1.3 var(--serif);font-variation-settings:"opsz" 12;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.contact dd{margin:0}
+.contact .mail{display:inline-block;font-size:clamp(18px,1.9vw,21px);font-weight:520;word-break:break-word}
+.contact .mail:hover{color:var(--tie)}
+.contact .note{margin:10px 0 0;font-size:17px;color:var(--muted)}
 
-/* contact */
-.contact{padding:0 0 104px}
-.contact .rule{border-top:1px solid rgba(28,26,23,.2);padding-top:88px}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.card{background:var(--paper);border:1px solid rgba(28,26,23,.16);border-radius:6px;padding:28px}
-.card .caps{color:var(--muted);margin:0 0 12px}
-.card .mail{font-size:clamp(18px,1.9vw,21px);font-weight:520;word-break:break-word}
-.card p:last-child{margin:12px 0 0;font-size:17px;color:var(--muted)}
-
-/* footer */
-footer{background:var(--ink);color:var(--cream);padding:56px 0}
-footer .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
-footer img{height:22px;width:auto}
-footer p{margin:0;color:var(--muted-dark);font-size:15px}
-footer .caps{font-size:12px}
+/* ── footer ──────────────────────────────────────────────────── */
+footer{background:var(--ink);color:var(--cream);padding:48px 0 40px;font:400 15px/1.6 var(--sans)}
+footer .row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+footer .word{height:20px;width:auto}
+footer p{margin:0;color:var(--muted-dark)}
 footer a{color:var(--cream)}
-footer a:hover{color:var(--muted-dark)}
+footer a:hover{color:var(--steam-blue)}
+footer .legal{margin-top:24px;padding-top:20px;border-top:1px solid rgba(242,235,220,.12);font-size:13px;color:#8F887B}
 
+/* ── responsive ──────────────────────────────────────────────── */
 @media (max-width:900px){
-  .game .cols{grid-template-columns:1fr;gap:40px}
-  .studio .grid{grid-template-columns:1fr;gap:40px;justify-items:center;text-align:center}
-  .studio .text{margin:0 auto}
-  .cards{grid-template-columns:1fr}
+  .about .wrap{grid-template-columns:1fr;align-items:start}
+  .studio .grid{grid-template-columns:1fr;justify-items:center;text-align:center}
+  .studio p{margin-left:auto;margin-right:auto}
+  .contact dl{grid-template-columns:1fr;gap:28px}
+  .contact dl>div,.contact dl>div+div{border-left:0;padding:0}
+  .contact dl>div+div{border-top:1px solid rgba(28,26,23,.18);padding-top:28px}
+  .wish::before{background:linear-gradient(180deg,rgba(6,26,44,.55) 0%,rgba(6,26,44,.9) 55%,rgba(6,26,44,.96) 100%)}
 }
-@media (max-width:600px){
-  :root{--gutter:16px}
-  body{font-size:18px}
+@media (max-width:640px){
+  body{font-size:17px}
   .top .wrap{height:64px}
-  .brand img.word{display:none}
-  nav ul{gap:18px}
-  .caps{letter-spacing:.2em}
-  .btn{padding:14px 22px;font-size:13px;letter-spacing:.16em}
-  .hero{padding:48px 0 64px}
-  .game,.studio{padding:64px 0}
-  .game .pitch{font-size:20px}
+  .brand .word,.brand .presents{display:none}
+  .top nav a{font-size:11px;letter-spacing:.12em}
+  .hero__logo{width:86vw}
+  .hero h1{padding-top:72px}
+  .steam--lg{min-height:72px;padding:12px 28px 12px 16px}
+  .steam--lg svg{width:44px;height:44px}
+  .steam--lg .steam__big{font-size:30px}
+  .facts{flex-wrap:nowrap;font-size:11px;letter-spacing:.06em;gap:0 10px}
+  .facts li{gap:10px;white-space:nowrap}.facts li+li{padding-left:10px}.facts li+li::before{margin-left:-10px;width:5px;height:5px}
+  .catch__nav{display:none}
   .studio figure img{width:220px;height:220px}
-  .contact .rule{padding-top:64px}
-  footer .wrap{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:374px){
+  .facts{letter-spacing:.02em;gap:0 8px}
+  .facts li{gap:8px}.facts li+li{padding-left:8px}.facts li+li::before{margin-left:-8px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero__logo{animation:none}
+  .steam,.postcard__paper{transition:none}
+  .steam:hover::after,.steam:focus-visible::after{animation:none}
+  .steam:hover,.steam:focus-visible{transform:none}
 }
 </style>
 <script type="application/ld+json">
@@ -159,13 +234,13 @@ footer a:hover{color:var(--muted-dark)}
       "email": "support@serioussoup.com",
       "slogan": "Purveyors of fine nonsense",
       "foundingDate": "2026",
-      "sameAs": ["https://github.com/Serious-Soup"]
+      "sameAs": ["https://github.com/Serious-Soup", "https://store.steampowered.com/dev/serioussoup"]
     },
     {
       "@type": "VideoGame",
       "name": "Up the Creek!",
       "url": "https://store.steampowered.com/app/5595130/Up_the_Creek/",
-      "image": "https://serioussoup.com/img/up-the-creek-1600.webp",
+      "image": "https://serioussoup.com/img/keyart-1920.webp",
       "description": "An online co-op physics comedy for 1–4 friends adrift on a melting ice floe.",
       "genre": ["Co-op", "Physics", "Comedy"],
       "gamePlatform": "PC",
@@ -182,15 +257,21 @@ footer a:hover{color:var(--muted-dark)}
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="steam-logo" viewBox="0 0 24 24"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></symbol>
+  <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="/" aria-label="Serious Soup, home">
-      <img class="mark" src="/img/mark.svg" alt="" width="36" height="36">
-      <img class="word" src="/img/wordmark.svg" alt="" width="92" height="15">
+    <a class="brand" href="#studio" aria-label="Serious Soup presents">
+      <img class="mark" src="/img/mark.svg" alt="" width="38" height="38">
+      <img class="word" src="/img/wordmark.svg" alt="" width="99" height="16">
+      <span class="presents" aria-hidden="true">presents</span>
     </a>
     <nav aria-label="Main">
-      <ul class="caps">
-        <li><a href="#games">Games</a></li>
+      <ul>
+        <li><a href="#game">Game</a></li>
         <li><a href="#studio">Studio</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -199,59 +280,81 @@ footer a:hover{color:var(--muted-dark)}
 </header>
 
 <main id="main">
-  <section class="hero">
-    <div class="wrap">
-      <h1><img src="/img/logo-stacked.svg" alt="Serious Soup — Purveyors of fine nonsense. Est. 2026" width="2154" height="1340"></h1>
-      <p class="lede">We make silly games with a perfectly straight face.</p>
-      <p class="cta"><a class="btn" href="https://store.steampowered.com/app/5595130/Up_the_Creek/?utm_source=serioussoup.com&amp;utm_medium=website&amp;utm_campaign=coming_soon&amp;utm_content=hero">Wishlist <i>Up the Creek!</i> on Steam <span aria-hidden="true">→</span></a></p>
+  <section class="hero" aria-label="Up the Creek!">
+    <div class="hero__stage">
+      <picture class="hero__art">
+        <source media="(max-aspect-ratio: 4/5)" srcset="/img/keyart-tall-750.webp 750w, /img/keyart-tall-1125.webp 1125w, /img/keyart-tall-1500.webp 1500w" sizes="100vw">
+        <img src="/img/keyart-1920.webp" srcset="/img/keyart-1280.webp 1280w, /img/keyart-1920.webp 1920w, /img/keyart-2880.webp 2880w" sizes="100vw"
+             alt="Four fishermen bob up to their chins in icy water next to a fishing bobber, while a penguin in a red scarf fishes from their drifting ice floe and a lone paddle floats away."
+             width="2880" height="1620" fetchpriority="high">
+      </picture>
+      <h1><img class="hero__logo" src="/img/up-the-creek-logo-1200.webp" srcset="/img/up-the-creek-logo-600.webp 600w, /img/up-the-creek-logo-1200.webp 1200w, /img/up-the-creek-logo-1800.webp 1800w" sizes="(max-width:640px) 86vw, 660px" alt="Up the Creek!" width="1800" height="469"></h1>
+    </div>
+    <div class="hero__cta">
+      <p class="hero__slogan">Four guys. One ice floe. Not a single paddle.</p>
+      <a class="steam steam--lg" href="https://store.steampowered.com/app/5595130/Up_the_Creek/?utm_source=serioussoup.com&amp;utm_medium=website&amp;utm_campaign=coming_soon&amp;utm_content=hero">
+        <svg aria-hidden="true"><use href="#steam-logo"/></svg><span class="steam__r" aria-hidden="true">®</span>
+        <span class="steam__label"><span class="steam__small">Wishlist on</span><span class="steam__big">Steam</span></span>
+      </a>
+      <ul class="facts" aria-label="Game facts">
+        <li>Co-op for 1–4</li>
+        <li>Windows</li>
+        <li>Coming soon</li>
+      </ul>
     </div>
   </section>
 
-  <section class="game" id="games" aria-labelledby="game-title">
+  <section class="about" id="game" aria-labelledby="about-title">
     <div class="wrap">
-      <p class="label caps">Now on the stove</p>
-      <h2 id="game-title" style="margin:0">
-        <picture>
-          <source srcset="/img/up-the-creek-logo-600.webp 600w, /img/up-the-creek-logo-1200.webp 1200w" sizes="(max-width:700px) 100vw, 640px">
-          <img class="logo" src="/img/up-the-creek-logo-1200.webp" alt="Up the Creek!" width="1200" height="312">
-        </picture>
-      </h2>
-      <p class="slogan">Four guys. One ice floe. Not a single paddle.</p>
-      <p class="cta">
-        <a class="btn" href="https://store.steampowered.com/app/5595130/Up_the_Creek/?utm_source=serioussoup.com&amp;utm_medium=website&amp;utm_campaign=coming_soon&amp;utm_content=game_button">Wishlist on Steam <span aria-hidden="true">→</span></a>
-        <span class="note caps">Coming soon · Windows PC</span>
-      </p>
+      <h2 id="about-title">A co-op physics comedy on a <em>melting</em> ice&nbsp;floe.</h2>
+      <p>Up to four friends, one floe and no paddle. Drill holes, fish with your own clumsy hands, keep the floe level and haul frozen buddies out of the water. Then ride the van home and spend the catch on upgrades.</p>
+    </div>
+  </section>
 
-      <figure>
-        <a href="https://store.steampowered.com/app/5595130/Up_the_Creek/?utm_source=serioussoup.com&amp;utm_medium=website&amp;utm_campaign=coming_soon&amp;utm_content=keyart" aria-label="Up the Creek! on Steam">
-        <img src="/img/up-the-creek-1600.webp"
-             srcset="/img/up-the-creek-960.webp 960w, /img/up-the-creek-1600.webp 1600w, /img/up-the-creek-2400.webp 2400w"
-             sizes="(max-width:1168px) calc(100vw - 32px), 1072px"
-             alt="Four fishermen on a cracking ice floe: one fights a leaping fish, one slides into the water and is caught by the hand, one hauls a sled full of fish while a penguin watches from a nearby floe."
-             width="2400" height="1350" loading="lazy" decoding="async">
-        </a>
-      </figure>
-
-      <div class="cols">
-        <div>
-          <p class="pitch">Fresh out of the banya, a crew of fishermen foolishly drift off on an ice floe after the legendary Tsar Pike. Day after day they float further out — and every evening an old van hauls them and their catch home to the village, where fish become upgrades.</p>
-          <ul class="loop">
-            <li>Drill, fish and keep the floe from tipping over. Everything is hands-on physics.</li>
-            <li>Keep each other warm. Save each other. Or don’t.</li>
-            <li>At the strait, the van picks you up — the ride home is in the back, not on a loading screen.</li>
-            <li>In the village, the catch buys upgrades for your floe and sled, and the map opens the next bay.</li>
-            <li>Somewhere out in the farthest bay, the Tsar Pike is waiting.</li>
-          </ul>
-        </div>
-        <aside class="facts" aria-label="Game facts">
-          <dl>
-            <dt class="caps">Genre</dt><dd>Co-op physics comedy</dd>
-            <dt class="caps">Players</dt><dd>1–4, online co-op</dd>
-            <dt class="caps">Platform</dt><dd>Windows PC</dd>
-            <dt class="caps">Status</dt><dd>Coming soon on <a href="https://store.steampowered.com/app/5595130/Up_the_Creek/?utm_source=serioussoup.com&amp;utm_medium=website&amp;utm_campaign=coming_soon&amp;utm_content=facts">Steam</a></dd>
-          </dl>
-        </aside>
+  <section class="catch" id="screenshots" aria-labelledby="catch-title">
+    <div class="wrap catch__head">
+      <div>
+        <h2 id="catch-title">Fresh from the floe</h2>
+        <p class="catch__note">Real screenshots from the game.</p>
       </div>
+      <div class="catch__nav">
+        <button type="button" data-dir="-1" aria-label="Previous screenshots" disabled><svg aria-hidden="true" style="transform:scaleX(-1)"><use href="#arrow"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Next screenshots"><svg aria-hidden="true"><use href="#arrow"/></svg></button>
+      </div>
+    </div>
+    <div class="line" tabindex="0" aria-label="Screenshots, scroll sideways">
+      <figure class="postcard"><span class="bob" aria-hidden="true"></span><div class="postcard__paper">
+        <img src="/img/shot-camp-960.webp" srcset="/img/shot-camp-960.webp 960w, /img/shot-camp-1600.webp 1600w" sizes="(max-width:640px) 268px, 520px" alt="Three fishermen in earflaps, a raincoat and a blue beanie stand around a camp stove on the ice floe." width="1600" height="900" loading="lazy" decoding="async">
+        <figcaption>Earflaps, Raincoat and Blue Beanie set up camp on the floe.</figcaption></div></figure>
+      <figure class="postcard"><span class="bob" aria-hidden="true"></span><div class="postcard__paper">
+        <img src="/img/shot-catch-960.webp" srcset="/img/shot-catch-960.webp 960w, /img/shot-catch-1600.webp 1600w" sizes="(max-width:640px) 268px, 520px" alt="A fisherman in earflaps holds up a striped perch next to a fresh ice hole and a sled." width="1600" height="900" loading="lazy" decoding="async">
+        <figcaption>Fish on the ice! Grab it with your own clumsy hands.</figcaption></div></figure>
+      <figure class="postcard"><span class="bob" aria-hidden="true"></span><div class="postcard__paper">
+        <img src="/img/shot-frozen-960.webp" srcset="/img/shot-frozen-960.webp 960w, /img/shot-frozen-1600.webp 1600w" sizes="(max-width:640px) 268px, 520px" alt="First-person view: gloved hands drag a friend frozen inside a block of ice." width="1600" height="900" loading="lazy" decoding="async">
+        <figcaption>Blue Beanie froze solid. Drag the ice block to the fire.</figcaption></div></figure>
+      <figure class="postcard"><span class="bob" aria-hidden="true"></span><div class="postcard__paper">
+        <img src="/img/shot-van-960.webp" srcset="/img/shot-van-960.webp 960w, /img/shot-van-1600.webp 1600w" sizes="(max-width:640px) 268px, 520px" alt="An old boxy van parked in a snowy village at pink dusk, smoke rising from the chimneys." width="1600" height="900" loading="lazy" decoding="async">
+        <figcaption>Every evening the old van drives you home.</figcaption></div></figure>
+      <figure class="postcard"><span class="bob" aria-hidden="true"></span><div class="postcard__paper">
+        <img src="/img/shot-racks-960.webp" srcset="/img/shot-racks-960.webp 960w, /img/shot-racks-1600.webp 1600w" sizes="(max-width:640px) 268px, 520px" alt="A village square with drying racks of fish, bunting flags and a fisherman waving." width="1600" height="900" loading="lazy" decoding="async">
+        <figcaption>Back in the village, the catch goes up on the racks.</figcaption></div></figure>
+      <figure class="postcard"><span class="bob" aria-hidden="true"></span><div class="postcard__paper">
+        <img src="/img/shot-fireworks-960.webp" srcset="/img/shot-fireworks-960.webp 960w, /img/shot-fireworks-1600.webp 1600w" sizes="(max-width:640px) 268px, 520px" alt="Fireworks burst over the snowy village at night." width="1600" height="900" loading="lazy" decoding="async">
+        <figcaption>Some evenings end with fireworks.</figcaption></div></figure>
+    </div>
+  </section>
+
+  <section class="wish" id="wishlist" aria-labelledby="wish-title">
+    <div class="wish__art" aria-hidden="true">
+      <img src="/img/shot-van-1600.webp" srcset="/img/shot-van-960.webp 960w, /img/shot-van-1600.webp 1600w" sizes="100vw" alt="" width="1600" height="900" loading="lazy" decoding="async">
+    </div>
+    <div class="wrap">
+      <h2 id="wish-title">Put it on your wishlist.</h2>
+      <p>Steam will tell you the moment the ice breaks. And every wishlist genuinely helps a tiny studio.</p>
+      <a class="steam steam--lg" href="https://store.steampowered.com/app/5595130/Up_the_Creek/?utm_source=serioussoup.com&amp;utm_medium=website&amp;utm_campaign=coming_soon&amp;utm_content=wish_band">
+        <svg aria-hidden="true"><use href="#steam-logo"/></svg><span class="steam__r" aria-hidden="true">®</span>
+        <span class="steam__label"><span class="steam__small">Wishlist on</span><span class="steam__big">Steam</span></span>
+      </a>
     </div>
   </section>
 
@@ -261,7 +364,7 @@ footer a:hover{color:var(--muted-dark)}
         <img src="/img/founder-560.webp" alt="Portrait of a soup bowl with a stern face, wearing a suit, white collar and red tie." width="560" height="560" loading="lazy" decoding="async">
         <figcaption>The founder. Official portrait.</figcaption>
       </figure>
-      <div class="text">
+      <div>
         <h2 id="studio-title">The studio</h2>
         <p>Serious Soup is a tiny independent game studio, founded in 2026.</p>
         <p>The name comes from a bit of Slavic slang: to do something “with a serious soup” means to do it with a dead-serious face — the word for cabbage soup doubles as “face”. So: serious soup. We make nonsense, and we make it with a perfectly straight one.</p>
@@ -274,23 +377,23 @@ footer a:hover{color:var(--muted-dark)}
     <div class="wrap">
       <div class="rule">
         <h2 id="contact-title">Contact</h2>
-        <div class="cards">
-          <div class="card">
-            <p class="caps">Player support</p>
-            <a class="mail" href="mailto:support@serioussoup.com">support@serioussoup.com</a>
-            <p>Bugs, crashes and anything that went wrong in the game.</p>
+        <dl>
+          <div>
+            <dt>Player support</dt>
+            <dd><a class="mail" href="mailto:support@serioussoup.com">support@serioussoup.com</a>
+            <p class="note">Bugs, crashes and anything that went wrong in the game.</p></dd>
           </div>
-          <div class="card">
-            <p class="caps">Press &amp; business</p>
-            <a class="mail" href="mailto:press@serioussoup.com">press@serioussoup.com</a>
-            <p>Press, streamers, festivals and partners.</p>
+          <div>
+            <dt>Press &amp; business</dt>
+            <dd><a class="mail" href="mailto:press@serioussoup.com">press@serioussoup.com</a>
+            <p class="note">Press, streamers, festivals and partners.</p></dd>
           </div>
-          <div class="card">
-            <p class="caps">Press kit</p>
-            <span class="mail">Coming soon</span>
-            <p>Logos, key art, screenshots and a fact sheet.</p>
+          <div>
+            <dt>Press kit</dt>
+            <dd><span class="mail">Coming soon</span>
+            <p class="note">Logos, key art, screenshots and a fact sheet.</p></dd>
           </div>
-        </div>
+        </dl>
       </div>
     </div>
   </section>
@@ -298,10 +401,23 @@ footer a:hover{color:var(--muted-dark)}
 
 <footer>
   <div class="wrap">
-    <img src="/img/wordmark-on-dark.svg" alt="Serious Soup" width="99" height="16">
-    <p class="caps">Purveyors of fine nonsense · Est. 2026</p>
-    <p><a href="https://store.steampowered.com/app/5595130/Up_the_Creek/?utm_source=serioussoup.com&amp;utm_medium=website&amp;utm_campaign=coming_soon&amp;utm_content=footer">Up the Creek! on Steam</a> · © 2026 Serious Soup</p>
+    <div class="row">
+      <img class="word" src="/img/wordmark-on-dark.svg" alt="Serious Soup" width="124" height="20">
+      <p><a href="https://store.steampowered.com/app/5595130/Up_the_Creek/?utm_source=serioussoup.com&amp;utm_medium=website&amp;utm_campaign=coming_soon&amp;utm_content=footer">Up the Creek! on Steam</a> · Purveyors of fine nonsense · © 2026 Serious Soup</p>
+    </div>
+    <p class="legal">Steam and the Steam logo are trademarks and/or registered trademarks of Valve Corporation in the U.S. and/or other countries.</p>
   </div>
 </footer>
+
+<script>
+(function(){
+  var line=document.querySelector('.line'); if(!line) return;
+  var prev=document.querySelector('.catch__nav [data-dir="-1"]'), next=document.querySelector('.catch__nav [data-dir="1"]');
+  function step(){var c=line.querySelector('.postcard');return c?c.getBoundingClientRect().width+parseFloat(getComputedStyle(line).columnGap||0):320}
+  function sync(){var max=line.scrollWidth-line.clientWidth-2;prev.disabled=line.scrollLeft<=2;next.disabled=line.scrollLeft>=max}
+  [prev,next].forEach(function(b){b.addEventListener('click',function(){line.scrollBy({left:step()*Number(b.dataset.dir),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})})});
+  line.addEventListener('scroll',sync,{passive:true}); window.addEventListener('resize',sync); sync();
+})();
+</script>
 </body>
 </html>
