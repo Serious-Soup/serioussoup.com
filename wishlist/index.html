@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Up the Creek! — wishlist on Steam</title>
+<meta name="description" content="Up the Creek! is an online co-op physics comedy for 1–4 friends adrift on a melting ice floe. Wishlist it on Steam.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://serioussoup.com/wishlist/">
+<meta name="theme-color" content="#0B2C4A">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Serious Soup">
+<meta property="og:title" content="Up the Creek! — wishlist on Steam">
+<meta property="og:description" content="An online co-op physics comedy for 1–4 friends adrift on a melting ice floe. Paddle not included.">
+<meta property="og:url" content="https://serioussoup.com/wishlist/">
+<meta property="og:image" content="https://serioussoup.com/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="../fonts/unbounded-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="../img/keyart-tall-750.webp" imagesrcset="../img/keyart-tall-750.webp 750w, ../img/keyart-tall-1125.webp 1125w" imagesizes="100vw" media="(max-aspect-ratio: 4/5)">
+<link rel="preload" as="image" href="../img/keyart-1280.webp" imagesrcset="../img/keyart-1280.webp 1280w, ../img/keyart-1920.webp 1920w" imagesizes="100vw" media="(min-aspect-ratio: 4/5)">
+<style>
+@font-face{font-family:"Unbounded";src:url("../fonts/unbounded-800.woff2") format("woff2");font-weight:800;font-display:swap}
+@font-face{font-family:"Unbounded";src:url("../fonts/unbounded-500.woff2") format("woff2");font-weight:500;font-display:swap}
+
+:root{
+  --abyss:#061A2C;--deep:#0B2C4A;--water:#176196;--glint:#97D6F2;--snow:#F7FBFD;--bobber:#E8382C;
+  --steam-top:#2A475E;--steam-mid:#1B2838;--steam-bot:#171A21;--steam-blue:#66C0F4;--steam-text:#C7D5E0;
+  --display:"Unbounded","Arial Black",sans-serif;
+  --sans:ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --gutter:clamp(16px,4vw,40px);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--deep);color:var(--snow);font:400 16px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* the Steam button: same as on serioussoup.com */
+.steam{position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:16px;
+  width:100%;max-width:420px;min-height:76px;padding:12px 28px 12px 18px;
+  border-radius:14px;color:#fff;text-decoration:none;text-align:left;overflow:hidden;cursor:pointer;
+  background:linear-gradient(180deg,var(--steam-top) 0%,var(--steam-mid) 52%,var(--steam-bot) 100%);
+  border:1px solid rgba(102,192,244,.7);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 0 0 4px rgba(102,192,244,.14),0 18px 34px -14px rgba(0,0,0,.75);
+  transition:transform .3s var(--ease-out),box-shadow .3s var(--ease-out),border-color .3s var(--ease-out);
+  -webkit-tap-highlight-color:transparent}
+.steam::after{content:"";position:absolute;top:-30%;bottom:-30%;left:-50%;width:38%;z-index:-1;pointer-events:none;opacity:0;
+  background:linear-gradient(100deg,transparent 0%,rgba(214,240,255,.42) 50%,transparent 100%);transform:skewX(-18deg);
+  animation:glint 4.5s var(--ease-out) 1.2s infinite}
+.steam:hover,.steam:focus-visible{transform:translateY(-2px);border-color:var(--steam-blue);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 0 0 4px rgba(102,192,244,.22),0 20px 38px -12px rgba(102,192,244,.55)}
+.steam:active{transform:scale(.98)}
+.steam:focus-visible{outline:3px solid var(--snow);outline-offset:3px}
+@keyframes glint{0%{opacity:0;transform:translateX(0) skewX(-18deg)}4%{opacity:1}24%{opacity:0;transform:translateX(560%) skewX(-18deg)}100%{opacity:0;transform:translateX(560%) skewX(-18deg)}}
+.steam svg{width:46px;height:46px;fill:#fff;flex:none}
+.steam__r{align-self:flex-start;margin:2px 0 0 -15px;font:500 9px/1 var(--sans);color:var(--steam-text)}
+.steam__label{display:flex;flex-direction:column}
+.steam__small{font:500 12px/1.2 var(--display);letter-spacing:.18em;text-transform:uppercase;color:var(--steam-text)}
+.steam__big{font:800 30px/1 var(--display);letter-spacing:.01em;margin-top:6px}
+
+/* first screen: art, logo, one button */
+.hero{display:flex;flex-direction:column;min-height:100vh;min-height:100svh;background:var(--deep)}
+.hero__stage{position:relative;flex:1 1 auto;min-height:clamp(250px,44vh,900px);isolation:isolate;overflow:hidden}
+.hero__art{position:absolute;inset:0;z-index:-1}
+.hero__art img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.hero__stage::after{content:"";position:absolute;inset:auto 0 0 0;height:24%;z-index:-1;background:linear-gradient(180deg,rgba(11,44,74,0),var(--deep))}
+.hero h1{margin:0;padding:max(22px,env(safe-area-inset-top)) var(--gutter) 0;text-align:center}
+.hero__logo{width:min(560px,80vw);margin:0 auto;filter:drop-shadow(0 12px 18px rgba(6,26,44,.3));animation:settle 1.4s var(--ease-out) both}
+@keyframes settle{0%{transform:translateY(-22px) rotate(-2deg)}55%{transform:translateY(4px) rotate(.6deg)}100%{transform:none}}
+.hero__cta{padding:2px var(--gutter) max(24px,env(safe-area-inset-bottom));text-align:center;background:var(--deep)}
+.slogan{margin:0 auto 18px;max-width:22ch;font:800 clamp(20px,5.4vw,30px)/1.18 var(--display);letter-spacing:-.01em;text-wrap:balance}
+.hint{margin:14px auto 0;max-width:34ch;font:400 15px/1.45 var(--sans);color:var(--glint)}
+.facts{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 14px;margin:16px 0 0;padding:0;list-style:none;
+  font:500 clamp(10px,2.9vw,12px)/1.3 var(--display);letter-spacing:.08em;text-transform:uppercase;color:var(--steam-text)}
+.facts li{display:flex;align-items:center;white-space:nowrap}
+.facts li+li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--bobber);box-shadow:0 0 0 2px rgba(247,251,253,.85);margin-right:14px}
+
+/* below the fold: three frames and the same button again */
+.shots{display:grid;gap:14px;padding:28px var(--gutter) 8px;max-width:1200px;margin:0 auto}
+.shots img{width:100%;border-radius:12px;background:var(--abyss);box-shadow:0 14px 28px -16px rgba(0,0,0,.7)}
+.again{padding:28px var(--gutter) 44px;text-align:center}
+.again h2{margin:0 auto 18px;max-width:20ch;font:800 clamp(20px,5vw,28px)/1.2 var(--display);letter-spacing:-.01em;text-wrap:balance}
+footer{padding:22px var(--gutter) max(28px,env(safe-area-inset-bottom));background:var(--abyss);text-align:center;font:400 13px/1.6 var(--sans);color:#8FA3B5}
+footer p{margin:0 auto;max-width:60ch}
+footer p+p{margin-top:8px}
+footer a{color:var(--steam-text)}
+
+@media (min-width:720px){
+  .shots{grid-template-columns:repeat(3,1fr);gap:20px;padding-top:44px}
+  .hero__stage{min-height:clamp(360px,56vh,980px)}
+  .hero h1{padding-top:clamp(48px,8vh,96px)}
+  .slogan{max-width:30ch}
+  .hint{max-width:none}
+}
+@media (max-width:349px){
+  .facts{display:none}
+}
+@media (max-height:560px){
+  .hero__stage{min-height:200px}
+  .facts{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .hero__logo,.steam::after{animation:none}
+  .steam{transition:none}
+  .steam:hover,.steam:focus-visible{transform:none}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<symbol id="steam-logo" viewBox="0 0 24 24"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z"/></symbol>
+</svg>
+
+<main>
+  <section class="hero" aria-label="Up the Creek!">
+    <div class="hero__stage">
+      <picture class="hero__art">
+        <source media="(max-aspect-ratio: 4/5)" srcset="../img/keyart-tall-750.webp 750w, ../img/keyart-tall-1125.webp 1125w" sizes="100vw">
+        <img src="../img/keyart-1280.webp" srcset="../img/keyart-1280.webp 1280w, ../img/keyart-1920.webp 1920w" sizes="100vw"
+             alt="Four fishermen bob up to their chins in icy water next to a fishing bobber, while a penguin in a red scarf fishes from their drifting ice floe and a lone paddle floats away."
+             width="1920" height="1080" fetchpriority="high">
+      </picture>
+      <h1><img class="hero__logo" src="../img/up-the-creek-logo-600.webp" srcset="../img/up-the-creek-logo-600.webp 600w, ../img/up-the-creek-logo-1200.webp 1200w" sizes="(max-width:700px) 80vw, 560px" alt="Up the Creek!" width="1200" height="313"></h1>
+    </div>
+    <div class="hero__cta">
+      <p class="slogan">Four guys. One ice floe. Not a single paddle.</p>
+      <a class="steam" data-steam href="https://store.steampowered.com/app/5595130/Up_the_Creek/?utm_source=serioussoup.com&amp;utm_medium=website&amp;utm_campaign=coming_soon&amp;utm_content=wishlist_page">
+        <svg aria-hidden="true"><use href="#steam-logo"/></svg><span class="steam__r" aria-hidden="true">®</span>
+        <span class="steam__label"><span class="steam__small">Wishlist on</span><span class="steam__big">Steam</span></span>
+      </a>
+      <p class="hint">Wishlisting is free. Steam lets you know the day it&nbsp;launches.</p>
+      <ul class="facts" aria-label="Game facts">
+        <li>1–4 co-op</li>
+        <li>Windows</li>
+        <li>Coming soon</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="shots" aria-label="Screenshots">
+    <img src="../img/shot-frozen-960.webp" alt="First-person view: gloved hands drag a friend frozen inside a block of ice." width="960" height="540" loading="lazy" decoding="async">
+    <img src="../img/shot-catch-960.webp" alt="A fisherman in earflaps holds up a striped perch next to a fresh ice hole and a sled." width="960" height="540" loading="lazy" decoding="async">
+    <img src="../img/shot-camp-960.webp" alt="Three fishermen in earflaps, a raincoat and a blue beanie stand around a camp stove on the ice floe." width="960" height="540" loading="lazy" decoding="async">
+  </section>
+
+  <section class="again" aria-labelledby="again-title">
+    <h2 id="again-title">A co-op physics comedy on a melting ice&nbsp;floe.</h2>
+    <a class="steam" data-steam href="https://store.steampowered.com/app/5595130/Up_the_Creek/?utm_source=serioussoup.com&amp;utm_medium=website&amp;utm_campaign=coming_soon&amp;utm_content=wishlist_page">
+      <svg aria-hidden="true"><use href="#steam-logo"/></svg><span class="steam__r" aria-hidden="true">®</span>
+      <span class="steam__label"><span class="steam__small">Wishlist on</span><span class="steam__big">Steam</span></span>
+    </a>
+  </section>
+</main>
+
+<footer>
+  <p>Up the Creek! is made by <a href="https://serioussoup.com/">Serious Soup</a>, a tiny independent game studio. © 2026</p>
+  <p>Steam and the Steam logo are trademarks and/or registered trademarks of Valve Corporation in the U.S. and/or other countries.</p>
+</footer>
+
+<script>
+/* The button carries the visitor's campaign label on to Steam, so Steam's own
+   UTM report shows which ad the wishlist came from. Only source, medium and
+   campaign are passed on: one label per campaign keeps it in one report row. */
+(function () {
+  var q;
+  try { q = new URLSearchParams(location.search); } catch (e) { return; }
+  var ok = /^[a-z0-9_.-]{1,48}$/;
+  function pick(key) {
+    var v = (q.get(key) || "").toLowerCase();
+    return ok.test(v) ? v : "";
+  }
+  var source = pick("utm_source"), medium = pick("utm_medium"), campaign = pick("utm_campaign");
+  if (!source && !campaign) return;
+  var label = "utm_source=" + (source || "serioussoup.com") +
+    (medium ? "&utm_medium=" + medium : "") +
+    (campaign ? "&utm_campaign=" + campaign : "");
+  var url = "https://store.steampowered.com/app/5595130/Up_the_Creek/?" + label;
+  var links = document.querySelectorAll("a[data-steam]");
+  for (var i = 0; i < links.length; i++) links[i].href = url;
+})();
+</script>
+</body>
+</html>
