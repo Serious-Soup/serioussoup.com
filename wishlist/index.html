@@ -185,6 +185,65 @@ footer a{color:var(--steam-text)}
   var links = document.querySelectorAll("a[data-steam]");
   for (var i = 0; i < links.length; i++) links[i].href = url;
 })();
+
+/* Anonymous counts through GoatCounter: no cookies, nothing stored on the
+   phone. Counted: page opened (by the counter's own script), still here after
+   10 seconds, scrolled to the second button, a button pressed, and what the
+   phone did right after the press. Each count is named "what@campaign". */
+(function () {
+  var campaign = "none";
+  try {
+    var q = new URLSearchParams(location.search), keep = [], ok = /^[a-z0-9_.-]{1,48}$/;
+    ["utm_source", "utm_medium", "utm_campaign"].forEach(function (k) {
+      var v = (q.get(k) || "").toLowerCase();
+      if (ok.test(v)) { keep.push(k + "=" + v); if (k === "utm_campaign") campaign = v; }
+    });
+    /* Click ids and other extras leave the address before anything is sent. */
+    if (location.search && history.replaceState)
+      history.replaceState(null, "", location.pathname + (keep.length ? "?" + keep.join("&") : "") + location.hash);
+  } catch (e) {}
+
+  var queue = [], once = {};
+  function flush() {
+    var gc = window.goatcounter;
+    if (!gc || !gc.count) return false;
+    while (queue.length) { try { gc.count(queue.shift()); } catch (e) {} }
+    return true;
+  }
+  function count(name, single) {
+    if (single) { if (once[name]) return; once[name] = 1; }
+    queue.push({ path: name + "@" + campaign, title: name, event: true });
+    flush();
+  }
+  var tries = 0, timer = setInterval(function () { if (flush() || ++tries > 40) clearInterval(timer); }, 250);
+
+  setTimeout(function () { if (document.visibilityState === "visible") count("stay10", true); }, 10000);
+
+  var again = document.querySelector(".again");
+  if (again && "IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++)
+        if (entries[i].isIntersecting) { count("scroll", true); io.disconnect(); break; }
+    }, { threshold: 0.5 });
+    io.observe(again);
+  }
+
+  /* After a press: "away" = the page went out of sight, "unload" = it was
+     replaced by Steam in this same browser, "back" = the visitor returned to
+     it. Away without unload means the phone switched to another app. */
+  var pressed = 0, left = false;
+  function recent() { return pressed && Date.now() - pressed < 8000; }
+  var links = document.querySelectorAll("a[data-steam]");
+  for (var i = 0; i < links.length; i++) (function (pos) {
+    links[i].addEventListener("click", function () { pressed = Date.now(); count("click-" + pos); });
+  })(i === 0 ? "top" : "bottom");
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden" && recent()) { left = true; count("away", true); }
+    else if (document.visibilityState === "visible" && left) count("back", true);
+  });
+  window.addEventListener("pagehide", function () { if (recent()) count("unload", true); });
+})();
 </script>
+<script data-goatcounter="https://upthecreek.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
