@@ -228,20 +228,25 @@ footer a{color:var(--steam-text)}
     io.observe(again);
   }
 
-  /* After a press: "away" = the page went out of sight, "unload" = it was
-     replaced by Steam in this same browser, "back" = the visitor returned to
-     it. Away without unload means the phone switched to another app. */
-  var pressed = 0, left = false;
+  /* After a press: "to-web" = this page was replaced by Steam in the same
+     browser; "to-app" = the page went out of sight without being replaced,
+     so the phone switched to another app; "back" = the visitor returned.
+     The counter takes at most four counts a second, so each press sends two:
+     the press itself and one of to-web / to-app. */
+  var pressed = 0, leaving = false, left = false;
   function recent() { return pressed && Date.now() - pressed < 8000; }
   var links = document.querySelectorAll("a[data-steam]");
   for (var i = 0; i < links.length; i++) (function (pos) {
     links[i].addEventListener("click", function () { pressed = Date.now(); count("click-" + pos); });
   })(i === 0 ? "top" : "bottom");
-  document.addEventListener("visibilitychange", function () {
-    if (document.visibilityState === "hidden" && recent()) { left = true; count("away", true); }
-    else if (document.visibilityState === "visible" && left) count("back", true);
+  window.addEventListener("pagehide", function () {
+    if (recent()) { leaving = true; count("to-web", true); }
   });
-  window.addEventListener("pagehide", function () { if (recent()) count("unload", true); });
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden") {
+      if (recent() && !leaving) { left = true; count("to-app", true); }
+    } else if (left) count("back", true);
+  });
 })();
 </script>
 <script data-goatcounter="https://upthecreek.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
